@@ -1,4 +1,5 @@
-# Backdoor Machine - /!\ For educational purposes only /!\
+# Backdoor Machine - ❗For educational purposes only❗
+![GitHub last commit](https://img.shields.io/github/last-commit/CUPZYY/Backdoor-Machine?style=for-the-badge) ![version](https://img.shields.io/badge/github%20version-1.0.0-blue?style=for-the-badge)
 
 A program made in python for stealing passwords and usernames from Google Chrome/Brave and tokenlog the user's discord.
 It will send a message in a webhook, with all the tokens, login info, ip and so on.
