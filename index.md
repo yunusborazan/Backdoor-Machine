@@ -1,37 +1,24 @@
-## Welcome to GitHub Pages
+## Backdoor Machine
 
-You can use the [editor on GitHub](https://github.com/CUPZYY/Backdoor-Machine/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+A program made in python for stealing passwords and usernames from Google Chrome/Brave and tokenlog the user's discord. It will send a message in a webhook, with all the tokens, login info, ip and so on.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## How to use
+1. Download the repository
+2. Install the requirements:
+   ```
+   pip install requests
+   pip install pywin32
+   pip install pycryptodome
+   ```
+3. Make a webhook.
+4. Copy the webhook url into webhook.txt
+5. Run the code or something. (WARNING! This should be done in a vm because the txt file with the login info will be uploaded to anonfiles, so anyone can access the file if they somehow get the url to the file)
 
-### Markdown
+![alt text](https://i.imgur.com/52lLRjT.png)
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## Legal disclaimer:
 
-```markdown
-Syntax highlighted code block
+Usage of Backdoor Machine for attacking targets without prior mutual consent is illegal. It's the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program
 
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/CUPZYY/Backdoor-Machine/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+## A message to github
+This software is not ment to be used maliciously in any way. I just made this for fun and published it on github so that other people can use the code that I wrote.
