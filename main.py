@@ -349,7 +349,7 @@ def main():
 
         "username": "Backdoor-Machine",
 
-        "avatar_url": "https://cdn.discordapp.com/emojis/766657481966747660.png"
+        "avatar_url": "https://cdn1.savepice.ru/uploads/2021/4/27/7c17bf724105d4506e30f0718885860c-full.png"
 
     }
 
