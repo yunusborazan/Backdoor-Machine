@@ -1,15 +1,14 @@
 # Backdoor Machine - /!\ For educational purposes only /!\
 
+A program made in python for stealing passwords and usernames from Google Chrome/Brave and tokenlog the user's discord.
+It will send a message in a webhook, with all the tokens, login info, ip and so on.
+
 ## How to use
 1. Download the repository
 2. Install the requirements:
    ```
    pip install requests
-   ```
-   ```
    pip install pywin32
-   ```
-   ```
    pip install pycryptodome
    ```
 3. Make a webhook.
