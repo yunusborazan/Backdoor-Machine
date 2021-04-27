@@ -4,6 +4,22 @@
 
 Usage of Backdoor Machine for attacking targets without prior mutual consent is illegal. It's the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program
 
+## How to use
+1. Download the repository
+2. Install the requirements:
+   ```
+   pip install requests
+   ```
+   ```
+   pip install pywin32
+   ```
+   ```
+   pip install pycryptodome
+   ```
+3. Make a webhook.
+4. Copy the webhook url into webhook.txt
+5. Run the code or something. (WARNING! This should be done in a vm because the txt file with the login info will be uploaded to anonfiles, so anyone can access the file if they somehow get the url to the file)
+
 ![alt text](https://i.imgur.com/52lLRjT.png)
 
 
