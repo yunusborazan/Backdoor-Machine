@@ -268,7 +268,7 @@ def main():
 
             embed = {
 
-                "color": 0x0eec59,
+                "color": 0xe00000,
 
                 "fields": [
 
