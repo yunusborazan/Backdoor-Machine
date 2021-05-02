@@ -8,7 +8,7 @@ A program made in python for stealing passwords and usernames from Google Chrome
 It will send a message in a webhook, with all the tokens, login info, ip and so on.
 
 ## How to use
-1. Download the repository.
+1. Download the latest release.
 2. Install the requirements:
    ```
    pip install requests
