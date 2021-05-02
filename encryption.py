@@ -1,7 +1,8 @@
-from Crypto.Cipher import AES
-from Crypto import Random
 import random
 import string
+
+from Crypto import Random
+from Crypto.Cipher import AES
 
 
 def pad(s):

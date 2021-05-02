@@ -1,5 +1,6 @@
-from Crypto.Cipher import AES
 import os
+
+from Crypto.Cipher import AES
 
 
 def decrypt(ciphertext, key):
