@@ -24,8 +24,8 @@ It will send a message in a webhook, with all the tokens, login info, ip and so 
    ```
    pip install pyinstaller
    ```
-2. Make a webhook.
-3. Copy the webhook url into webhook.txt
+2. Make a webhook on discord or guilded and copy the url.
+3. Paste the webhook url into webhook.txt
 4. Run the file "build.py"
 5. When its done, go into the "dist" directory and exe should be in there.
 
